@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GJ Engenharia | Giovanna Jacomelli - Engenheira Civil</title>
+    <meta name="description" content="GJ Engenharia - Vistorias, Regularização de Imóveis, Projetos Residenciais e Comerciais. Especialista em Engenharia Civil.">
+    <meta name="keywords" content="engenharia civil, vistorias, regularização de imóveis, projetos residenciais, projetos comerciais">
+    <meta property="og:title" content="GJ Engenharia | Giovanna Jacomelli">
+    <meta property="og:description" content="Soluções integradas em engenharia civil com foco em segurança e confiança.">
+    <meta property="og:type" content="website">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0A2342 0%, #1a3a5c 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 500px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0A2342 0%, #FF6B00 100%);
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -30%;
+            width: 150px;
+            height: 150px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .profile-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: white;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            font-weight: bold;
+            color: #FF6B00;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .name {
+            color: white;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            position: relative;
+            z-index: 1;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .title {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 14px;
+            font-weight: 500;
+            position: relative;
+            z-index: 1;
+        }
+
+        .crea {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 12px;
+            margin-top: 8px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content {
+            padding: 30px 20px;
+        }
+
+        .bio-section {
+            margin-bottom: 30px;
+        }
+
+        .bio-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: #FF6B00;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .bio-text {
+            font-size: 14px;
+            color: #343A40;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .service-item {
+            background: #f8f9fa;
+            border-left: 4px solid #FF6B00;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            color: #343A40;
+            font-weight: 500;
+        }
+
+        .service-item::before {
+            content: '✓ ';
+            color: #FF6B00;
+            font-weight: bold;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            padding: 14px 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #FF6B00 0%, #ff8533 100%);
+            color: white;
+            grid-column: 1 / -1;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 107, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #0A2342;
+            border: 2px solid #0A2342;
+        }
+
+        .btn-secondary:hover {
+            background: #0A2342;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+        }
+
+        .btn-whatsapp:hover {
+            background: #1fb856;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-email {
+            background: #0A2342;
+            color: white;
+        }
+
+        .btn-email:hover {
+            background: #FF6B00;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(10, 35, 66, 0.3);
+        }
+
+        .footer {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .footer-text {
+            font-size: 12px;
+            color: #6c757d;
+        }
+
+        .footer-text a {
+            color: #FF6B00;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer-text a:hover {
+            text-decoration: underline;
+        }
+
+        .divider {
+            height: 1px;
+            background: #e9ecef;
+            margin: 20px 0;
+        }
+
+        .education {
+            background: #f0f7ff;
+            border-left: 4px solid #0A2342;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            color: #0A2342;
+            margin-bottom: 15px;
+        }
+
+        .education::before {
+            content: '🎓 ';
+            margin-right: 6px;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.3s ease;
+            overflow-y: auto;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: auto;
+            padding: 0;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            top: 50px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: slideInModal 0.3s ease;
+        }
+
+        @keyframes slideInModal {
+            from {
+                transform: translateY(-60px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #0A2342 0%, #FF6B00 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 20px 20px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .modal-header h2 {
+            font-size: 20px;
+            margin: 0;
+        }
+
+        .close {
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close:hover {
+            opacity: 0.8;
+        }
+
+        .modal-body {
+            padding: 30px 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: #0A2342;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: 'Open Sans', sans-serif;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #FF6B00;
+            box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-group select {
+            cursor: pointer;
+        }
+
+        .form-submit {
+            background: linear-gradient(135deg, #FF6B00 0%, #ff8533 100%);
+            color: white;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .form-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 107, 0, 0.3);
+        }
+
+        .form-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .success-message {
+            display: none;
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #28a745;
+        }
+
+        .error-message {
+            display: none;
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #f5c6cb;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                border-radius: 15px;
+            }
+
+            .name {
+                font-size: 24px;
+            }
+
+            .services {
+                grid-template-columns: 1fr;
+            }
+
+            .buttons {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                width: 95%;
+                margin: 50px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="profile-image">GJ</div>
+            <h1 class="name">Giovanna Jacomelli</h1>
+            <p class="title">Engenheira Civil</p>
+            <p class="crea">CREA nº 5071672842</p>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- Bio Section -->
+            <div class="bio-section">
+                <p class="bio-title">Sobre</p>
+                <p class="bio-text">
+                    Especialista em vistorias técnicas de recebimento de imóveis, regularização de propriedades e projetos residenciais e comerciais. Formada pela USP - São Carlos, com experiência em soluções integradas de engenharia civil.
+                </p>
+                <div class="education">
+                    USP - São Carlos
+                </div>
+            </div>
+
+            <!-- Services Section -->
+            <div class="bio-section">
+                <p class="bio-title">Serviços</p>
+                <div class="services">
+                    <div class="service-item">Vistorias de Recebimento</div>
+                    <div class="service-item">Regularização de Imóveis</div>
+                    <div class="service-item">Projetos Residenciais</div>
+                    <div class="service-item">Projetos Comerciais</div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Contact Buttons -->
+            <div class="buttons">
+                <a href="https://wa.me/5519993876533" class="btn btn-whatsapp" target="_blank">
+                    <span>💬</span> WhatsApp
+                </a>
+                <a href="mailto:gjacomelli.eng@gmail.com" class="btn btn-email">
+                    <span>✉️</span> Email
+                </a>
+            </div>
+
+            <button onclick="openModal()" class="btn btn-primary">
+                <span>📋</span> Solicitar Orçamento
+            </button>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p class="footer-text">
+                © 2025 GJ Engenharia. Todos os direitos reservados.
+            </p>
+        </div>
+    </div>
+
+    <!-- Modal de Orçamento -->
+    <div id="orcamentoModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Solicitar Orçamento</h2>
+                <button class="close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="success-message" id="successMessage">
+                    ✓ Orçamento enviado com sucesso! Entraremos em contato em breve.
+                </div>
+                <div class="error-message" id="errorMessage">
+                    ✗ Erro ao enviar o orçamento. Tente novamente.
+                </div>
+                <form id="orcamentoForm" method="POST" action="https://formspree.io/f/xyzpqrst">
+                    <div class="form-group">
+                        <label for="nome">Nome Completo *</label>
+                        <input type="text" id="nome" name="nome" required placeholder="Seu nome">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required placeholder="seu@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefone">Telefone *</label>
+                        <input type="tel" id="telefone" name="telefone" required placeholder="(19) 99999-9999">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="servico">Tipo de Serviço *</label>
+                        <select id="servico" name="servico" required>
+                            <option value="">Selecione um serviço</option>
+                            <option value="Vistoria de Recebimento">Vistoria de Recebimento</option>
+                            <option value="Regularização de Imóvel">Regularização de Imóvel</option>
+                            <option value="Projeto Residencial">Projeto Residencial</option>
+                            <option value="Projeto Comercial">Projeto Comercial</option>
+                            <option value="Outro">Outro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="descricao">Descrição do Projeto *</label>
+                        <textarea id="descricao" name="descricao" required placeholder="Descreva brevemente o que você precisa..."></textarea>
+                    </div>
+
+                    <button type="submit" class="form-submit" id="submitBtn">Enviar Orçamento</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('orcamentoModal');
+        const form = document.getElementById('orcamentoForm');
+        const successMessage = document.getElementById('successMessage');
+        const errorMessage = document.getElementById('errorMessage');
+
+        function openModal() {
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            form.reset();
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Enviar via Formspree
+            fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    successMessage.style.display = 'block';
+                    errorMessage.style.display = 'none';
+                    form.reset();
+                    setTimeout(() => {
+                        closeModal();
+                    }, 2000);
+                } else {
+                    errorMessage.style.display = 'block';
+                    successMessage.style.display = 'none';
+                }
+            }).catch(error => {
+                console.error('Erro:', error);
+                errorMessage.style.display = 'block';
+                successMessage.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
