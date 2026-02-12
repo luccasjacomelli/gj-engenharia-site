@@ -465,6 +465,24 @@ header {
     transition: 0.3s;
 }
 
+/* Corrige renderização do select no desktop (dropdown não fica solto) */
+.form-group select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    padding-right: 36px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+}
+
+.form-group select option {
+    background: #2d2d2d;
+    color: var(--branco);
+}
+
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
@@ -840,7 +858,10 @@ footer {
     <div class="form-container">
         <div id="formMessage" class="message"></div>
         
-        <form id="contactForm">
+        <form id="contactForm" action="https://formsubmit.co/gjacomelli.eng@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="Novo Orçamento - GJ Engenharia">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
             <div class="form-grid">
                 <div class="form-group">
                     <label>Nome Completo *</label>
@@ -906,78 +927,14 @@ footer {
     </div>
 </footer>
 
-<!-- EmailJS SDK -->
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-
 <script>
-// Inicializar EmailJS
-(function(){
-    emailjs.init("q0K9vGmVvtqBgmWPp"); // Public Key da EmailJS
-})();
-
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const submitBtn = this.querySelector('.form-submit');
-    const originalText = submitBtn.textContent;
-    const messageDiv = document.getElementById('formMessage');
-    
-    // Mostrar mensagem de loading
+document.getElementById('contactForm').addEventListener('submit', function() {
+    var submitBtn = this.querySelector('.form-submit');
+    var messageDiv = document.getElementById('formMessage');
     messageDiv.className = 'message loading show';
     messageDiv.textContent = '⏳ Enviando mensagem, aguarde...';
-    
-    // Desabilitar botão
     submitBtn.disabled = true;
     submitBtn.textContent = 'Enviando...';
-    
-    const formData = new FormData(this);
-    const templateParams = {
-        from_name: formData.get('nome'),
-        from_email: formData.get('email'),
-        phone: formData.get('telefone'),
-        city: formData.get('cidade') || 'Não informado',
-        service: formData.get('servico'),
-        message: formData.get('mensagem'),
-        to_email: 'gjacomelli.eng@gmail.com'
-    };
-    
-    // Enviar email via EmailJS
-    emailjs.send('service_ql14i3h', 'template_zk9gkyf', templateParams)
-        .then(function(response) {
-            console.log('SUCCESS!', response.status, response.text);
-            
-            // Mostrar mensagem de sucesso
-            messageDiv.className = 'message success show';
-            messageDiv.textContent = '✓ Mensagem enviada com sucesso! Entraremos em contato em breve.';
-            
-            // Limpar formulário
-            document.getElementById('contactForm').reset();
-            
-            // Restaurar botão
-            submitBtn.disabled = false;
-            submitBtn.textContent = originalText;
-            
-            // Esconder mensagem após 6 segundos
-            setTimeout(() => {
-                messageDiv.classList.remove('show');
-            }, 6000);
-        })
-        .catch(function(error) {
-            console.log('FAILED...', error);
-            
-            // Mostrar mensagem de erro
-            messageDiv.className = 'message error show';
-            messageDiv.textContent = '✗ Erro ao enviar mensagem. Tente novamente ou entre em contato via WhatsApp.';
-            
-            // Restaurar botão
-            submitBtn.disabled = false;
-            submitBtn.textContent = originalText;
-            
-            // Esconder mensagem após 8 segundos
-            setTimeout(() => {
-                messageDiv.classList.remove('show');
-            }, 8000);
-        });
 });
 
 // Smooth scroll
