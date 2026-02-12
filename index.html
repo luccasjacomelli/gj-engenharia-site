@@ -559,19 +559,33 @@ footer {
     font-size: 13px;
 }
 
-/* SUCCESS MESSAGE */
-.success-message {
+/* FORM MESSAGE (success / error / loading) */
+.message {
     display: none;
-    background: #28a745;
-    color: white;
     padding: 15px;
     border-radius: 6px;
     margin-bottom: 20px;
     text-align: center;
+    font-weight: 600;
 }
 
-.success-message.show {
+.message.show {
     display: block;
+}
+
+.message.success {
+    background: #28a745;
+    color: white;
+}
+
+.message.error {
+    background: #dc3545;
+    color: white;
+}
+
+.message.loading {
+    background: var(--amarelo);
+    color: var(--preto);
 }
 
 /* RESPONSIVE */
@@ -824,9 +838,7 @@ footer {
     </div>
     
     <div class="form-container">
-        <div id="successMessage" class="success-message">
-            ✓ Mensagem enviada com sucesso! Entraremos em contato em breve.
-        </div>
+        <div id="formMessage" class="message"></div>
         
         <form id="contactForm">
             <div class="form-grid">
@@ -894,44 +906,78 @@ footer {
     </div>
 </footer>
 
+<!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
 <script>
+// Inicializar EmailJS
+(function(){
+    emailjs.init("q0K9vGmVvtqBgmWPp"); // Public Key da EmailJS
+})();
+
 document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault();
     
+    const submitBtn = this.querySelector('.form-submit');
+    const originalText = submitBtn.textContent;
+    const messageDiv = document.getElementById('formMessage');
+    
+    // Mostrar mensagem de loading
+    messageDiv.className = 'message loading show';
+    messageDiv.textContent = '⏳ Enviando mensagem, aguarde...';
+    
+    // Desabilitar botão
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Enviando...';
+    
     const formData = new FormData(this);
-    const data = {};
-    formData.forEach((value, key) => {
-        data[key] = value;
-    });
+    const templateParams = {
+        from_name: formData.get('nome'),
+        from_email: formData.get('email'),
+        phone: formData.get('telefone'),
+        city: formData.get('cidade') || 'Não informado',
+        service: formData.get('servico'),
+        message: formData.get('mensagem'),
+        to_email: 'gjacomelli.eng@gmail.com'
+    };
     
-    // Criar corpo do email
-    const emailBody = `
-Nome: ${data.nome}
-Telefone: ${data.telefone}
-E-mail: ${data.email}
-Cidade: ${data.cidade || 'Não informado'}
-Serviço: ${data.servico}
-
-Mensagem:
-${data.mensagem}
-    `.trim();
-    
-    // Criar link mailto
-    const mailtoLink = `mailto:gjacomelli.eng@gmail.com?subject=Orçamento - ${data.servico}&body=${encodeURIComponent(emailBody)}`;
-    
-    // Abrir cliente de email
-    window.location.href = mailtoLink;
-    
-    // Mostrar mensagem de sucesso
-    document.getElementById('successMessage').classList.add('show');
-    
-    // Limpar formulário
-    this.reset();
-    
-    // Esconder mensagem após 5 segundos
-    setTimeout(() => {
-        document.getElementById('successMessage').classList.remove('show');
-    }, 5000);
+    // Enviar email via EmailJS
+    emailjs.send('service_ql14i3h', 'template_zk9gkyf', templateParams)
+        .then(function(response) {
+            console.log('SUCCESS!', response.status, response.text);
+            
+            // Mostrar mensagem de sucesso
+            messageDiv.className = 'message success show';
+            messageDiv.textContent = '✓ Mensagem enviada com sucesso! Entraremos em contato em breve.';
+            
+            // Limpar formulário
+            document.getElementById('contactForm').reset();
+            
+            // Restaurar botão
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+            
+            // Esconder mensagem após 6 segundos
+            setTimeout(() => {
+                messageDiv.classList.remove('show');
+            }, 6000);
+        })
+        .catch(function(error) {
+            console.log('FAILED...', error);
+            
+            // Mostrar mensagem de erro
+            messageDiv.className = 'message error show';
+            messageDiv.textContent = '✗ Erro ao enviar mensagem. Tente novamente ou entre em contato via WhatsApp.';
+            
+            // Restaurar botão
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+            
+            // Esconder mensagem após 8 segundos
+            setTimeout(() => {
+                messageDiv.classList.remove('show');
+            }, 8000);
+        });
 });
 
 // Smooth scroll
