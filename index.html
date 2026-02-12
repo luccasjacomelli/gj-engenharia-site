@@ -1,643 +1,953 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GJ Engenharia | Giovanna Jacomelli - Engenheira Civil</title>
-    <meta name="description" content="GJ Engenharia - Vistorias, Regularização de Imóveis, Projetos Residenciais e Comerciais. Especialista em Engenharia Civil.">
-    <meta name="keywords" content="engenharia civil, vistorias, regularização de imóveis, projetos residenciais, projetos comerciais">
-    <meta property="og:title" content="GJ Engenharia | Giovanna Jacomelli">
-    <meta property="og:description" content="Soluções integradas em engenharia civil com foco em segurança e confiança.">
-    <meta property="og:type" content="website">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GJ Engenharia | Engenharia Civil Especializada</title>
+<link rel="icon" href="logo_gj_SOLIDO_PRETO.png" type="image/png">
 
-        body {
-            font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #0A2342 0%, #1a3a5c 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
+<style>
+:root {
+    --amarelo: #fba832;
+    --cinza: #7c7c7c;
+    --preto: #111;
+    --branco: #ffffff;
+    --cinza-claro: #f9f9f9;
+    --cinza-borda: #eee;
+}
 
-        .container {
-            max-width: 500px;
-            width: 100%;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-            animation: slideIn 0.6s ease-out;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--branco);
+    color: var(--preto);
+    line-height: 1.6;
+}
 
-        .header {
-            background: linear-gradient(135deg, #0A2342 0%, #FF6B00 100%);
-            padding: 40px 20px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
+/* HEADER */
+header {
+    width: 100%;
+    background: var(--branco);
+    border-bottom: 2px solid var(--cinza-borda);
+    padding: 10px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
 
-        .header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200px;
-            height: 200px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-        }
+.logo-container {
+    display: flex;
+    align-items: center;
+}
 
-        .header::after {
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            left: -30%;
-            width: 150px;
-            height: 150px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-        }
+.logo-icon {
+    width: 220px;
+    height: 72px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.logo-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
 
-        .profile-image {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background: white;
-            margin: 0 auto 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 48px;
-            font-weight: bold;
-            color: #FF6B00;
-            position: relative;
-            z-index: 1;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            font-family: 'Montserrat', sans-serif;
-        }
+.logo-text h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--preto);
+}
 
-        .name {
-            color: white;
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 5px;
-            position: relative;
-            z-index: 1;
-            font-family: 'Montserrat', sans-serif;
-        }
+.logo-text p {
+    font-size: 12px;
+    color: var(--cinza);
+    margin-top: -3px;
+}
 
-        .title {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 14px;
-            font-weight: 500;
-            position: relative;
-            z-index: 1;
-        }
+.header-cta {
+    display: flex;
+    gap: 15px;
+}
 
-        .crea {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 12px;
-            margin-top: 8px;
-            position: relative;
-            z-index: 1;
-        }
+/* HERO SECTION */
+.hero {
+    background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+    padding: 120px 8% 100px;
+    position: relative;
+    overflow: hidden;
+}
 
-        .content {
-            padding: 30px 20px;
-        }
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    background: var(--amarelo);
+    opacity: 0.05;
+    border-radius: 50%;
+}
 
-        .bio-section {
-            margin-bottom: 30px;
-        }
+.hero-content {
+    max-width: 1200px;
+    margin: auto;
+    position: relative;
+    z-index: 1;
+}
 
-        .bio-title {
-            font-size: 12px;
-            font-weight: 700;
-            color: #FF6B00;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-            font-family: 'Montserrat', sans-serif;
-        }
+.hero h1 {
+    font-size: 52px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
 
-        .bio-text {
-            font-size: 14px;
-            color: #343A40;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
+.hero span {
+    color: var(--amarelo);
+}
 
-        .services {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-bottom: 30px;
-        }
+.hero .subtitle {
+    font-size: 20px;
+    color: var(--cinza);
+    max-width: 650px;
+    margin-bottom: 15px;
+}
 
-        .service-item {
-            background: #f8f9fa;
-            border-left: 4px solid #FF6B00;
-            padding: 12px;
-            border-radius: 6px;
-            font-size: 13px;
-            color: #343A40;
-            font-weight: 500;
-        }
+.hero .description {
+    color: var(--cinza);
+    max-width: 650px;
+    margin-bottom: 35px;
+    font-size: 16px;
+}
 
-        .service-item::before {
-            content: '✓ ';
-            color: #FF6B00;
-            font-weight: bold;
-        }
+.hero-badges {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
 
-        .buttons {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-bottom: 15px;
-        }
+.badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
 
-        .btn {
-            padding: 14px 20px;
-            border: none;
-            border-radius: 10px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-        }
+.badge-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--branco);
+    border: 2px solid var(--amarelo);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+    color: var(--preto);
+}
+.badge-icon svg {
+    width: 28px;
+    height: 28px;
+    stroke: currentColor;
+}
 
-        .btn-primary {
-            background: linear-gradient(135deg, #FF6B00 0%, #ff8533 100%);
-            color: white;
-            grid-column: 1 / -1;
-        }
+.badge-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--preto);
+}
 
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(255, 107, 0, 0.3);
-        }
+.badge-sublabel {
+    font-size: 11px;
+    color: var(--cinza);
+}
 
-        .btn-secondary {
-            background: white;
-            color: #0A2342;
-            border: 2px solid #0A2342;
-        }
+/* BUTTONS */
+.btn {
+    padding: 16px 32px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    border-radius: 6px;
+    text-decoration: none;
+    display: inline-block;
+}
 
-        .btn-secondary:hover {
-            background: #0A2342;
-            color: white;
-            transform: translateY(-2px);
-        }
+.btn-primary {
+    background: var(--amarelo);
+    color: var(--preto);
+}
 
-        .btn-whatsapp {
-            background: #25D366;
-            color: white;
-        }
+.btn-primary:hover {
+    background: #e29628;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(251, 168, 50, 0.3);
+}
 
-        .btn-whatsapp:hover {
-            background: #1fb856;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
-        }
+.btn-secondary {
+    background: transparent;
+    color: var(--preto);
+    border: 2px solid var(--preto);
+}
 
-        .btn-email {
-            background: #0A2342;
-            color: white;
-        }
+.btn-secondary:hover {
+    background: var(--preto);
+    color: var(--branco);
+}
 
-        .btn-email:hover {
-            background: #FF6B00;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(10, 35, 66, 0.3);
-        }
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--amarelo);
+    color: var(--preto);
+}
 
-        .footer {
-            background: #f8f9fa;
-            padding: 20px;
-            text-align: center;
-            border-top: 1px solid #e9ecef;
-        }
+.btn-outline:hover {
+    background: var(--amarelo);
+}
 
-        .footer-text {
-            font-size: 12px;
-            color: #6c757d;
-        }
+/* SECTIONS */
+.section {
+    padding: 80px 8%;
+    max-width: 1400px;
+    margin: auto;
+}
 
-        .footer-text a {
-            color: #FF6B00;
-            text-decoration: none;
-            font-weight: 600;
-        }
+.section-title {
+    font-size: 36px;
+    margin-bottom: 15px;
+    font-weight: 700;
+    position: relative;
+}
 
-        .footer-text a:hover {
-            text-decoration: underline;
-        }
+.section-subtitle {
+    color: var(--cinza);
+    font-size: 16px;
+    margin-bottom: 50px;
+    max-width: 600px;
+}
 
-        .divider {
-            height: 1px;
-            background: #e9ecef;
-            margin: 20px 0;
-        }
+.section-title::after {
+    content: "";
+    width: 80px;
+    height: 5px;
+    background: var(--amarelo);
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    border-radius: 3px;
+}
 
-        .education {
-            background: #f0f7ff;
-            border-left: 4px solid #0A2342;
-            padding: 12px;
-            border-radius: 6px;
-            font-size: 13px;
-            color: #0A2342;
-            margin-bottom: 15px;
-        }
+/* SOBRE */
+.about {
+    background: var(--cinza-claro);
+}
 
-        .education::before {
-            content: '🎓 ';
-            margin-right: 6px;
-        }
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
 
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            animation: fadeIn 0.3s ease;
-            overflow-y: auto;
-        }
+.about-text h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: var(--amarelo);
+}
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+.about-text p {
+    color: var(--cinza);
+    margin-bottom: 15px;
+}
 
-        .modal-content {
-            background-color: white;
-            margin: auto;
-            padding: 0;
-            border-radius: 20px;
-            width: 90%;
-            max-width: 500px;
-            position: relative;
-            top: 50px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            animation: slideInModal 0.3s ease;
-        }
+.about-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 25px;
+}
 
-        @keyframes slideInModal {
-            from {
-                transform: translateY(-60px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
+.highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
 
-        .modal-header {
-            background: linear-gradient(135deg, #0A2342 0%, #FF6B00 100%);
-            color: white;
-            padding: 20px;
-            border-radius: 20px 20px 0 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-family: 'Montserrat', sans-serif;
-        }
+.highlight-icon {
+    width: 30px;
+    height: 30px;
+    background: var(--amarelo);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--branco);
+    flex-shrink: 0;
+}
+.highlight-icon svg {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+}
 
-        .modal-header h2 {
-            font-size: 20px;
-            margin: 0;
-        }
+/* SERVIÇOS */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
 
-        .close {
-            color: white;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-            background: none;
-            border: none;
-            padding: 0;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+.service-card {
+    background: var(--branco);
+    border: 2px solid var(--cinza-borda);
+    padding: 40px 30px;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+}
 
-        .close:hover {
-            opacity: 0.8;
-        }
+.service-card:hover {
+    border-color: var(--amarelo);
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
 
-        .modal-body {
-            padding: 30px 20px;
-        }
+.service-icon {
+    width: 70px;
+    height: 70px;
+    background: var(--amarelo);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: var(--branco);
+}
+.service-icon svg {
+    width: 36px;
+    height: 36px;
+    stroke: currentColor;
+}
 
-        .form-group {
-            margin-bottom: 20px;
-        }
+.service-card h3 {
+    margin-bottom: 12px;
+    font-size: 20px;
+}
 
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            color: #0A2342;
-            margin-bottom: 8px;
-            font-size: 14px;
-            font-family: 'Montserrat', sans-serif;
-        }
+.service-card p {
+    color: var(--cinza);
+    font-size: 14px;
+    line-height: 1.6;
+}
 
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #e9ecef;
-            border-radius: 8px;
-            font-size: 14px;
-            font-family: 'Open Sans', sans-serif;
-            transition: border-color 0.3s ease;
-        }
+/* CONTATO */
+.contact {
+    background: var(--preto);
+    color: var(--branco);
+}
 
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: #FF6B00;
-            box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.1);
-        }
+.contact .section-title {
+    color: var(--branco);
+}
 
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
+.contact .section-subtitle {
+    color: #999;
+}
 
-        .form-group select {
-            cursor: pointer;
-        }
+.contact-methods {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-bottom: 50px;
+}
 
-        .form-submit {
-            background: linear-gradient(135deg, #FF6B00 0%, #ff8533 100%);
-            color: white;
-            padding: 14px 20px;
-            border: none;
-            border-radius: 10px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            width: 100%;
-            transition: all 0.3s ease;
-            font-family: 'Montserrat', sans-serif;
-        }
+.contact-card {
+    background: rgba(255,255,255,0.05);
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    transition: 0.3s;
+    border: 2px solid transparent;
+}
 
-        .form-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(255, 107, 0, 0.3);
-        }
+.contact-card:hover {
+    background: rgba(251, 168, 50, 0.1);
+    border-color: var(--amarelo);
+}
 
-        .form-submit:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
+.contact-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--amarelo);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    color: var(--branco);
+}
+.contact-icon svg {
+    width: 28px;
+    height: 28px;
+    stroke: currentColor;
+}
 
-        .success-message {
-            display: none;
-            background: #d4edda;
-            color: #155724;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            border-left: 4px solid #28a745;
-        }
+.contact-card h3 {
+    margin-bottom: 8px;
+    font-size: 18px;
+}
 
-        .error-message {
-            display: none;
-            background: #f8d7da;
-            color: #721c24;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            border-left: 4px solid #f5c6cb;
-        }
+.contact-card p {
+    color: #999;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
 
-        @media (max-width: 480px) {
-            .container {
-                border-radius: 15px;
-            }
+.contact-card a {
+    color: var(--amarelo);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+}
 
-            .name {
-                font-size: 24px;
-            }
+/* FORMULÁRIO */
+.form-container {
+    background: rgba(255,255,255,0.05);
+    padding: 40px;
+    border-radius: 8px;
+    max-width: 800px;
+    margin: 0 auto;
+}
 
-            .services {
-                grid-template-columns: 1fr;
-            }
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
 
-            .buttons {
-                grid-template-columns: 1fr;
-            }
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
 
-            .modal-content {
-                width: 95%;
-                margin: 50px auto;
-            }
-        }
-    </style>
+.form-group label {
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 12px;
+    border: 2px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.05);
+    color: var(--branco);
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: inherit;
+    transition: 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--amarelo);
+    background: rgba(255,255,255,0.08);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-submit {
+    width: 100%;
+    padding: 16px;
+    background: var(--amarelo);
+    border: none;
+    color: var(--preto);
+    font-weight: 700;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.form-submit:hover {
+    background: #e29628;
+    transform: translateY(-2px);
+}
+
+.form-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* FOOTER */
+footer {
+    background: #000;
+    color: var(--branco);
+    padding: 40px 8%;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #333;
+}
+
+.footer-info {
+    text-align: left;
+}
+
+.footer-info h3 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.footer-info p {
+    color: #999;
+    font-size: 13px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 25px;
+}
+
+.footer-links a {
+    color: #999;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--amarelo);
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    color: #666;
+    font-size: 13px;
+}
+
+/* SUCCESS MESSAGE */
+.success-message {
+    display: none;
+    background: #28a745;
+    color: white;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.success-message.show {
+    display: block;
+}
+
+/* RESPONSIVE */
+@media(max-width: 1024px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 5%;
+    }
+    
+    .header-cta {
+        width: 100%;
+        flex-direction: column;
+    }
+    
+    .header-cta .btn {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .hero {
+        padding: 60px 5% 50px;
+    }
+    
+    .hero h1 {
+        font-size: 36px;
+    }
+    
+    .hero .subtitle {
+        font-size: 18px;
+    }
+    
+    .section {
+        padding: 60px 5%;
+    }
+    
+    .section-title {
+        font-size: 28px;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-methods {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    
+    .footer-info {
+        text-align: center;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+</style>
 </head>
+
 <body>
-    <div class="container">
-        <!-- Header -->
-        <div class="header">
-            <div class="profile-image">GJ</div>
-            <h1 class="name">Giovanna Jacomelli</h1>
-            <p class="title">Engenheira Civil</p>
-            <p class="crea">CREA nº 5071672842</p>
-        </div>
 
-        <!-- Content -->
-        <div class="content">
-            <!-- Bio Section -->
-            <div class="bio-section">
-                <p class="bio-title">Sobre</p>
-                <p class="bio-text">
-                    Especialista em vistorias técnicas de recebimento de imóveis, regularização de propriedades e projetos residenciais e comerciais. Formada pela USP - São Carlos, com experiência em soluções integradas de engenharia civil.
-                </p>
-                <div class="education">
-                    USP - São Carlos
-                </div>
-            </div>
-
-            <!-- Services Section -->
-            <div class="bio-section">
-                <p class="bio-title">Serviços</p>
-                <div class="services">
-                    <div class="service-item">Vistorias de Recebimento</div>
-                    <div class="service-item">Regularização de Imóveis</div>
-                    <div class="service-item">Projetos Residenciais</div>
-                    <div class="service-item">Projetos Comerciais</div>
-                </div>
-            </div>
-
-            <div class="divider"></div>
-
-            <!-- Contact Buttons -->
-            <div class="buttons">
-                <a href="https://wa.me/5519993876533" class="btn btn-whatsapp" target="_blank">
-                    <span>💬</span> WhatsApp
-                </a>
-                <a href="mailto:gjacomelli.eng@gmail.com" class="btn btn-email">
-                    <span>✉️</span> Email
-                </a>
-            </div>
-
-            <button onclick="openModal()" class="btn btn-primary">
-                <span>📋</span> Solicitar Orçamento
-            </button>
-        </div>
-
-        <!-- Footer -->
-        <div class="footer">
-            <p class="footer-text">
-                © 2025 GJ Engenharia. Todos os direitos reservados.
-            </p>
+<!-- HEADER -->
+<header>
+    <div class="logo-container">
+        <div class="logo-icon">
+            <a href="#" onclick="window.location.reload(); return false;" style="display:flex;align-items:center;justify-content:center;width:100%;height:100%;cursor:pointer;">
+                <img src="logo_gj_SOLIDO_PRETO.png" alt="GJ Engenharia" style="cursor:pointer;">
+            </a>
         </div>
     </div>
+    <div class="header-cta">
+        <a href="#contato" class="btn btn-outline">Fale Conosco</a>
+        <a href="https://wa.me/5519993876533" class="btn btn-primary">WhatsApp</a>
+    </div>
+</header>
 
-    <!-- Modal de Orçamento -->
-    <div id="orcamentoModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Solicitar Orçamento</h2>
-                <button class="close" onclick="closeModal()">&times;</button>
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Engenharia com <span>precisão</span> e confiança.</h1>
+        <p class="subtitle">Especialista em vistorias técnicas e regularização de imóveis</p>
+        <p class="description">
+            Engenheira Civil formada pela USP - São Carlos, especialista em vistorias técnicas de recebimento 
+            de imóveis, regularização de propriedades em prefeituras, Receita Federal e cartórios, além de 
+            projetos residenciais e comerciais. Atuo com excelência e compromisso para garantir a segurança 
+            e qualidade das suas construções.
+        </p>
+        
+        <div class="hero-badges">
+            <div class="badge">
+                <div class="badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div class="badge-label">Segurança</div>
+                <div class="badge-sublabel">Garantida</div>
             </div>
-            <div class="modal-body">
-                <div class="success-message" id="successMessage">
-                    ✓ Orçamento enviado com sucesso! Entraremos em contato em breve.
-                </div>
-                <div class="error-message" id="errorMessage">
-                    ✗ Erro ao enviar o orçamento. Tente novamente.
-                </div>
-                <form id="orcamentoForm" method="POST" action="https://formspree.io/f/xyzpqrst">
-                    <div class="form-group">
-                        <label for="nome">Nome Completo *</label>
-                        <input type="text" id="nome" name="nome" required placeholder="Seu nome">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input type="email" id="email" name="email" required placeholder="seu@email.com">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="telefone">Telefone *</label>
-                        <input type="tel" id="telefone" name="telefone" required placeholder="(19) 99999-9999">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="servico">Tipo de Serviço *</label>
-                        <select id="servico" name="servico" required>
-                            <option value="">Selecione um serviço</option>
-                            <option value="Vistoria de Recebimento">Vistoria de Recebimento</option>
-                            <option value="Regularização de Imóvel">Regularização de Imóvel</option>
-                            <option value="Projeto Residencial">Projeto Residencial</option>
-                            <option value="Projeto Comercial">Projeto Comercial</option>
-                            <option value="Outro">Outro</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="descricao">Descrição do Projeto *</label>
-                        <textarea id="descricao" name="descricao" required placeholder="Descreva brevemente o que você precisa..."></textarea>
-                    </div>
-
-                    <button type="submit" class="form-submit" id="submitBtn">Enviar Orçamento</button>
-                </form>
+            <div class="badge">
+                <div class="badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <div class="badge-label">Qualidade</div>
+                <div class="badge-sublabel">Certificada</div>
+            </div>
+            <div class="badge">
+                <div class="badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                <div class="badge-label">Agilidade</div>
+                <div class="badge-sublabel">No Atendimento</div>
+            </div>
+            <div class="badge">
+                <div class="badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+                <div class="badge-label">Suporte</div>
+                <div class="badge-sublabel">Completo</div>
             </div>
         </div>
+        
+        <a href="#contato" class="btn btn-primary">Solicitar Orçamento Gratuito</a>
     </div>
+</section>
 
-    <script>
-        const modal = document.getElementById('orcamentoModal');
-        const form = document.getElementById('orcamentoForm');
-        const successMessage = document.getElementById('successMessage');
-        const errorMessage = document.getElementById('errorMessage');
-
-        function openModal() {
-            modal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal() {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-            form.reset();
-            successMessage.style.display = 'none';
-            errorMessage.style.display = 'none';
-        }
-
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
-
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
+<!-- SOBRE -->
+<section class="section about" id="sobre">
+    <div class="about-content">
+        <div class="about-text">
+            <h2 class="section-title">Sobre a Profissional</h2>
+            <p class="section-subtitle">Experiência e excelência em engenharia civil</p>
             
-            // Enviar via Formspree
-            fetch(form.action, {
-                method: 'POST',
-                body: new FormData(form),
-                headers: {
-                    'Accept': 'application/json'
-                }
-            }).then(response => {
-                if (response.ok) {
-                    successMessage.style.display = 'block';
-                    errorMessage.style.display = 'none';
-                    form.reset();
-                    setTimeout(() => {
-                        closeModal();
-                    }, 2000);
-                } else {
-                    errorMessage.style.display = 'block';
-                    successMessage.style.display = 'none';
-                }
-            }).catch(error => {
-                console.error('Erro:', error);
-                errorMessage.style.display = 'block';
-                successMessage.style.display = 'none';
+            <h3>USP - São Carlos</h3>
+            <p>
+                Engenheira Civil formada pela renomada Universidade de São Paulo - Campus São Carlos, 
+                uma das instituições de ensino mais respeitadas do Brasil na área de engenharia.
+            </p>
+            
+            <div class="about-highlights">
+                <div class="highlight-item">
+                    <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                    <span>Vistorias técnicas de recebimento de imóveis</span>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                    <span>Regularização em Prefeituras, Receita Federal e Cartórios</span>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                    <span>Projetos residenciais e comerciais personalizados</span>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                    <span>Patologia das construções e diagnósticos estruturais</span>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                    <span>Laudos técnicos com validade legal</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="about-image">
+            <img src="engenharia_civil_sobre.png" alt="Engenharia civil - experiência e excelência" style="width: 100%; height: 450px; object-fit: cover; border-radius: 12px;">
+        </div>
+    </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section class="section" id="servicos">
+    <h2 class="section-title">Serviços Especializados</h2>
+    <p class="section-subtitle">Soluções completas em engenharia civil para sua segurança e tranquilidade</p>
+    
+    <div class="services-grid">
+        <div class="service-card">
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
+            <h3>Vistoria de Recebimento de Imóveis</h3>
+            <p>Inspeção técnica detalhada para garantir a qualidade do seu imóvel antes da entrega. Análise completa de acabamentos, instalações e estrutura.</p>
+        </div>
+        
+        <div class="service-card">
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+            <h3>Regularização em Prefeituras, Receita Federal e Cartórios</h3>
+            <p>Documentação completa para legalização do seu imóvel. Processos técnicos conforme normas municipais e federais.</p>
+        </div>
+        
+        <div class="service-card">
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M5 20V8l7-5 7 5v12"/><path d="M9 20v-6h6v6"/></svg></div>
+            <h3>Patologia das Construções</h3>
+            <p>Diagnóstico e análise de problemas estruturais e construtivos. Identificação de causas e soluções técnicas adequadas.</p>
+        </div>
+        
+        <div class="service-card">
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+            <h3>Projetos Residenciais</h3>
+            <p>Projetos personalizados para a casa dos sonhos. Desenvolvimento técnico completo desde o conceito até a execução.</p>
+        </div>
+        
+        <div class="service-card">
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg></div>
+            <h3>Projetos Comerciais</h3>
+            <p>Soluções estruturais e funcionais para empreendimentos comerciais. Projetos completos para empresas e comércios.</p>
+        </div>
+        
+        <div class="service-card">
+            <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg></div>
+            <h3>Laudos Técnicos</h3>
+            <p>Documentação técnica com validade legal. Laudos estruturais, de avaliação e perícias técnicas especializadas.</p>
+        </div>
+    </div>
+</section>
+
+<!-- CONTATO -->
+<section class="section contact" id="contato">
+    <h2 class="section-title">Entre em Contato</h2>
+    <p class="section-subtitle">Solicite um orçamento sem compromisso. Resposta em até 24 horas úteis.</p>
+    
+    <div class="contact-methods">
+        <div class="contact-card">
+            <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+            <h3>WhatsApp</h3>
+            <p>Atendimento rápido</p>
+            <a href="https://wa.me/5519993876533">(19) 99387-6533</a>
+        </div>
+        
+        <div class="contact-card">
+            <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <h3>E-mail</h3>
+            <p>Envie sua dúvida</p>
+            <a href="mailto:gjacomelli.eng@gmail.com">gjacomelli.eng@gmail.com</a>
+        </div>
+        
+        <div class="contact-card">
+            <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <h3>Localização</h3>
+            <p>Atendimento em toda região</p>
+            <a href="#contato">São Paulo - SP</a>
+        </div>
+    </div>
+    
+    <div class="form-container">
+        <div id="successMessage" class="success-message">
+            ✓ Mensagem enviada com sucesso! Entraremos em contato em breve.
+        </div>
+        
+        <form id="contactForm">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Nome Completo *</label>
+                    <input type="text" name="nome" required placeholder="Seu nome">
+                </div>
+                
+                <div class="form-group">
+                    <label>Telefone / WhatsApp *</label>
+                    <input type="tel" name="telefone" required placeholder="(19) 99999-9999">
+                </div>
+                
+                <div class="form-group">
+                    <label>E-mail *</label>
+                    <input type="email" name="email" required placeholder="seu@email.com">
+                </div>
+                
+                <div class="form-group">
+                    <label>Cidade / Estado</label>
+                    <input type="text" name="cidade" placeholder="Ex: Campinas - SP">
+                </div>
+                
+                <div class="form-group full-width">
+                    <label>Tipo de Serviço *</label>
+                    <select name="servico" required>
+                        <option value="">Selecione um serviço</option>
+                        <option value="Vistoria de Recebimento">Vistoria de Recebimento</option>
+                        <option value="Regularização de Imóvel">Regularização de Imóvel</option>
+                        <option value="Projeto Residencial">Projeto Residencial</option>
+                        <option value="Projeto Comercial">Projeto Comercial</option>
+                        <option value="Patologia das Construções">Patologia das Construções</option>
+                        <option value="Laudos Técnicos">Laudos Técnicos</option>
+                        <option value="Outro">Outro</option>
+                    </select>
+                </div>
+                
+                <div class="form-group full-width">
+                    <label>Descreva seu Projeto ou Necessidade *</label>
+                    <textarea name="mensagem" required placeholder="Conte-nos mais detalhes sobre o que você precisa..."></textarea>
+                </div>
+            </div>
+            
+            <button type="submit" class="form-submit">Enviar Orçamento</button>
+        </form>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-info">
+            <h3>GJ Engenharia</h3>
+            <p>Engenharia Civil com precisão e confiança</p>
+        </div>
+        <div class="footer-links">
+            <a href="#sobre">Sobre</a>
+            <a href="#servicos">Serviços</a>
+            <a href="#contato">Contato</a>
+            <a href="https://wa.me/5519993876533">WhatsApp</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © 2025 GJ Engenharia — Todos os direitos reservados. | CREA-SP
+    </div>
+</footer>
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(this);
+    const data = {};
+    formData.forEach((value, key) => {
+        data[key] = value;
+    });
+    
+    // Criar corpo do email
+    const emailBody = `
+Nome: ${data.nome}
+Telefone: ${data.telefone}
+E-mail: ${data.email}
+Cidade: ${data.cidade || 'Não informado'}
+Serviço: ${data.servico}
+
+Mensagem:
+${data.mensagem}
+    `.trim();
+    
+    // Criar link mailto
+    const mailtoLink = `mailto:gjacomelli.eng@gmail.com?subject=Orçamento - ${data.servico}&body=${encodeURIComponent(emailBody)}`;
+    
+    // Abrir cliente de email
+    window.location.href = mailtoLink;
+    
+    // Mostrar mensagem de sucesso
+    document.getElementById('successMessage').classList.add('show');
+    
+    // Limpar formulário
+    this.reset();
+    
+    // Esconder mensagem após 5 segundos
+    setTimeout(() => {
+        document.getElementById('successMessage').classList.remove('show');
+    }, 5000);
+});
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
             });
-        });
-    </script>
+        }
+    });
+});
+</script>
+
 </body>
 </html>
